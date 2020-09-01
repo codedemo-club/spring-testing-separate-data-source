@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
@@ -17,10 +16,13 @@ public class H2DataSourceConfig {
     @Autowired
     Environment environment;
 
+    /**
+     * 定义数据源
+     * @return
+     */
     @Bean
     DataSource dataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-//        dataSourceBuilder.driverClassName("org.h2.Driver");
         dataSourceBuilder.url(this.environment.getProperty("jdbc.url"));
         dataSourceBuilder.username(this.environment.getProperty("jdbc.user"));
         dataSourceBuilder.password(this.environment.getProperty("jdbc.password"));

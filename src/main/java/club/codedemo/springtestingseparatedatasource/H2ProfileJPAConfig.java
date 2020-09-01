@@ -17,7 +17,7 @@ public class H2ProfileJPAConfig {
      * 定义数据源
      * @return
      */
-    @Bean
+    @Bean("h2ProfileDataSource")
     @Profile("test")
     public DataSource dataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();

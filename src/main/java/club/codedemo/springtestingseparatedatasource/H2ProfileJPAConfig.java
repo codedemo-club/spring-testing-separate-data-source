@@ -11,13 +11,14 @@ import javax.sql.DataSource;
  * H2 Profile配置
  */
 @Configuration
+@Profile("test")
 public class H2ProfileJPAConfig {
 
     /**
      * 定义数据源
      * @return
      */
-    @Bean("h2ProfileDataSource")
+    @Bean
     @Profile("test")
     public DataSource dataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
